@@ -1,0 +1,7 @@
+make,model,year,price,mileage,fuel_type
+Toyota,Corolla,2017,15000,50000,Petrol
+Honda,Civic,2016,14000,60000,Petrol
+Ford,Fiesta,2018,12000,30000,Diesel
+Toyota,Camry,2019,25000,40000,Petrol
+Honda,Accord,2015,18000,80000,Hybrid
+Ford,Focus,2017,13000,55000,Petrol

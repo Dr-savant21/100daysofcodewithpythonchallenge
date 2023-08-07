@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python To Do App</title>
+
+    <link rel="stylesheet" href="../static/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Task List</h1>
+      <form id="new-task-form" action="{{ url_for('add') }}" method="post">
+        <input
+          type="text"
+          name="todo"
+          id="new-task-input"
+          placeholder="What do you have planned?"
+        />
+        <input type="submit" id="new-task-submit" value="Add task" />
+      </form>
+    </header>
+    <main>
+      <section class="task-list">
+        <h2>Tasks</h2>
+
+        {% for index in range(todos|length) %}
+        {% set todo = todos[index] %}
+        <div id="tasks">
+          <div class="task">
+					<div class="content">
+						<input 
+							type="text" 
+							class="text" 
+							value="{{ todo['task'] }}"
+							readonly>
+					</div>
+					<div class="actions">
+            <button class="edit" data-index="{{ index }}">Edit</button>
+            <a class="delete" data-index="{{ index }}" href="{{ url_for('delete', index=loop.index0) }}">Delete</a>
+            <button class="done" data-index="{{ index }}" style="display: none;">Save</button>
+					</div>
+				</div>
+        </div>
+        {% endfor %}
+      </section>
+    </main>
+
+    <script src="../static/main.js"></script>
+  </body>
+</html>
